@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bulb Power Calculator</title>
+    <style>
+        body { font-family: Arial; background: #f0f0f0; text-align: center; padding: 50px; }
+        form { background: #fff; padding: 20px; border-radius: 10px; display: inline-block; }
+        input { margin: 5px; padding: 8px; }
+        button { padding: 10px 20px; background: #4CAF50; color: white; border: none; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h2>💡Power Calculator💡</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label>Intensity (I in Ampere):</label><br>
+        <input type="number" step="any" name="intensity" required><br>
+        <label>Resistance (R in Ohm):</label><br>
+        <input type="number" step="any" name="resistance" required><br>
+        <button type="submit">Calculate Power</button>
+    </form>
+
+    {% if result %}
+        <h3>Power (P) = {{ result }} Watts</h3>
+    {% endif %}
+</body>
+</html>
